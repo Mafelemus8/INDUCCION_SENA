@@ -1,0 +1,6 @@
+{
+  "name": "Inducción Interactiva SENA",
+  "description": "Plataforma interactiva de bienvenida e inducción institucional para aprendices del Servicio Nacional de Aprendizaje (SENA) de Colombia: símbolos, formación por proyectos, reglamento, bienestar y alternativas de etapa productiva.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

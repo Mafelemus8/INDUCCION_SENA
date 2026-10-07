@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+
+    /* Light Mode Tactile Soft-UI Palette Tokens */
+    --bg-canvas: #EEF1F6;
+    --bg-surface: #F4F6FA;
+    --bg-subtle: #E5E9F2;
+    --border-hairline: rgba(255, 255, 255, 0.75);
+    --text-primary: #1E2433;
+    --text-muted: #5A657D;
+    --brand-navy: #00304D;
+    --brand-green: #39A900;
+    --brand-green-text: #2A7D00;
+  }
+
+  .dark {
+    /* Dark Mode Tactile Soft-UI Palette Tokens */
+    --bg-canvas: #0E1520;
+    --bg-surface: #141E2D;
+    --bg-subtle: #0A1018;
+    --border-hairline: rgba(255, 255, 255, 0.07);
+    --text-primary: #F1F5F9;
+    --text-muted: #94A3B8;
+    --brand-navy: #38BDF8;
+    --brand-green: #4ADE80;
+    --brand-green-text: #4ADE80;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    transition: background-color 250ms cubic-bezier(0.16, 1, 0.3, 1),
+                color 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .dark body {
+    letter-spacing: 0.008em;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Tactile Neumorphic Soft-UI Surfaces inspired by reference UI kit */
+.neu-surface {
+  background: linear-gradient(145deg, #F8FAFD, #E9EDF5);
+  box-shadow: 10px 10px 24px rgba(163, 177, 198, 0.45),
+              -10px -10px 24px rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.dark .neu-surface {
+  background: linear-gradient(145deg, #172233, #111A27);
+  box-shadow: 10px 10px 24px rgba(5, 9, 15, 0.72),
+              -8px -8px 20px rgba(32, 47, 70, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.neu-inset {
+  background: #E6EBF3;
+  box-shadow: inset 5px 5px 11px rgba(163, 177, 198, 0.55),
+              inset -5px -5px 11px rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.dark .neu-inset {
+  background: #0B111A;
+  box-shadow: inset 5px 5px 11px rgba(4, 7, 12, 0.82),
+              inset -4px -4px 10px rgba(28, 42, 62, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.neu-btn {
+  background: linear-gradient(145deg, #FAFBFD, #E6EBF4);
+  box-shadow: 6px 6px 14px rgba(163, 177, 198, 0.5),
+              -6px -6px 14px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neu-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 8px 8px 18px rgba(163, 177, 198, 0.6),
+              -8px -8px 18px rgba(255, 255, 255, 1);
+}
+
+.dark .neu-btn {
+  background: linear-gradient(145deg, #1A2639, #121B28);
+  box-shadow: 6px 6px 14px rgba(5, 8, 14, 0.75),
+              -5px -5px 12px rgba(34, 50, 74, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Vibrant Gradient Accents inspired by reference image */
+.grad-accent {
+  background: linear-gradient(135deg, #2563EB 0%, #7C3AED 52%, #C026D3 100%);
+  box-shadow: 0 8px 20px -4px rgba(124, 58, 237, 0.45);
+  color: #FFFFFF;
+}
+
+.grad-sena {
+  background: linear-gradient(135deg, #00304D 0%, #0D9488 50%, #39A900 100%);
+  box-shadow: 0 8px 20px -4px rgba(57, 169, 0, 0.38);
+  color: #FFFFFF;
+}
+
+/* Custom Tactile Range Slider */
+input[type="range"].neu-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  border-radius: 999px;
+  background: #E4E9F2;
+  box-shadow: inset 3px 3px 6px rgba(163, 177, 198, 0.6),
+              inset -3px -3px 6px rgba(255, 255, 255, 0.9);
+}
+
+.dark input[type="range"].neu-range {
+  background: #0A1018;
+  box-shadow: inset 3px 3px 6px rgba(3, 6, 10, 0.85),
+              inset -2px -2px 5px rgba(32, 46, 68, 0.3);
+}
+
+input[type="range"].neu-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563EB 0%, #9333EA 100%);
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 4px 10px rgba(124, 58, 237, 0.45);
+  cursor: pointer;
+}
+
+/* Smooth Blur Transition Effect when toggling Light/Dark Theme */
+.theme-transition-stage {
+  transition: filter 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-blur-active {
+  filter: blur(10px);
+  opacity: 0.82;
+  transform: scale(0.996);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition-stage {
+    transition: opacity 150ms ease;
+  }
+  .theme-blur-active {
+    filter: none;
+    transform: none;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #FFFFFF !important;
+    color: #111812 !important;
+  }
+}
